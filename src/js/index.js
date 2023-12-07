@@ -67,7 +67,7 @@ if ( signUpForm ) {
 
 /* Confirmation */
 
-if ( settings.confirmationUrl && window.location.pathname === settings.confirmationPathname ) {
+if ( settings.confirmationPathname && window.location.pathname === settings.confirmationPathname ) {
 	const queryString = window.location.search;
 	const urlParams = new URLSearchParams(queryString);
 	const jwtParameter = urlParams.get( 'jwt' );
