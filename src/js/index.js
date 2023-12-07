@@ -1,3 +1,8 @@
+const settings = {
+	apiHost: turbofanSettings.apiHost || 'https://api.turbofan.email',
+	confirmationPathname: turbofanSettings.confirmationPathname || '/signup-confirmed/',
+};
+
 async function postData( url = "", data = {} ) {
 	try {
 		const response = await fetch( url, {
@@ -62,15 +67,15 @@ if ( signUpForm ) {
 
 /* Confirmation */
 
-if ( window.location.pathname === '/signup-confirmed/' ) {
+if ( settings.confirmationUrl && window.location.pathname === settings.confirmationPathname ) {
 	const queryString = window.location.search;
 	const urlParams = new URLSearchParams(queryString);
 	const jwtParameter = urlParams.get( 'jwt' );
 
 	const errorMsg = document.querySelector( '#confirmation-error' );
 
-	if ( jwtParameter && formSettings.apiHost ) {
-		const postUrl = `${formSettings.apiHost}/v1/form/confirm/${jwtParameter}`;
+	if ( jwtParameter && settings.apiHost ) {
+		const postUrl = `${settings.apiHost}/v1/form/confirm/${jwtParameter}`;
 
 		postData( postUrl ).then((data) => {
 			if ( ! data ) {

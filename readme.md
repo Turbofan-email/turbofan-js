@@ -3,8 +3,9 @@
 Include the script just before `</body>`:
 ```
 <script>
-const formSettings = {
+const turbofanSettings = {
 	apiHost: 'https://api.turbofan.email',
+	confirmationPathname: '/signup-confirmed/',
 };
 </script>
 <script src="turbofan.js?v=0.1.0"></script>
