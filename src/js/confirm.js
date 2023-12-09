@@ -14,7 +14,7 @@ if ( settings.confirmationPathname && window.location.pathname === settings.conf
 		postData( postUrl ).then((data) => {
 			if ( ! data ) {
 				if ( errorMsg ) {
-					errorMsg.classList.remove( 'hidden' );
+					errorMsg.classList.remove( settings.hiddenClass );
 				}
 			}
 		} );

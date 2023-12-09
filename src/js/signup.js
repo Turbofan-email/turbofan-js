@@ -1,3 +1,4 @@
+import { settings } from "./inc/settings";
 import { postData } from "./inc/postData";
 
 function signUpEmail( form, eTarget ) {
@@ -22,7 +23,7 @@ function signUpEmail( form, eTarget ) {
 	postData( postUrl, payload ).then( (data) => {
 		if ( data ) {
 			if ( successMsg ) {
-				successMsg.classList.remove( 'hidden' );
+				successMsg.classList.remove( settings.hiddenClass );
 				form.reset();
 				// todo: enable button
 			} else {
@@ -30,7 +31,7 @@ function signUpEmail( form, eTarget ) {
 			}
 		} else {
 			if ( errorMsg ) {
-				errorMsg.classList.remove( 'hidden' );
+				errorMsg.classList.remove( settings.hiddenClass );
 			}
 		}
 	} );
