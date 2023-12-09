@@ -31,6 +31,11 @@ function signUpEmail( form, eTarget ) {
 	const postUrl = form.getAttribute( 'action' );
 	const formData = new FormData( eTarget );
 
+	let payload = {};
+	formData.forEach((value, key) => {
+		payload[key] = value;
+	} );
+
 	const emailValue = formData.get( 'email' );
 	if ( ! emailValue ) {
 		return; // todo: error handling
@@ -39,7 +44,7 @@ function signUpEmail( form, eTarget ) {
 	const successMsg = document.querySelector( '#form-success' );
 	const errorMsg   = document.querySelector( '#form-error' );
 
-	postData( postUrl, { email: emailValue } ).then( (data) => {
+	postData( postUrl, payload ).then( (data) => {
 		if ( data ) {
 			if ( successMsg ) {
 				successMsg.classList.remove( 'hidden' );
