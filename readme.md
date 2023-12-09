@@ -1,14 +1,25 @@
 ## Usage
 
-Include the script just before `</body>`:
+Include the stylesheet before `</head`:
+```
+<link href="style.css?v=0.1.1" rel="stylesheet" media="all">
+```
+
+Include the script on the page with the sign up form, just before `</body>`:
+```
+<script src="signup.js?v=0.1.1"></script>
+```
+
+Include the script on the confirmation page, just before `</body>`:
 ```
 <script>
 const turbofanSettings = {
 	apiHost: 'https://api.turbofan.email',
 	confirmationPathname: '/signup-confirmed/',
+	hiddenClass: 'turbofan-hidden',
 };
 </script>
-<script src="turbofan.js?v=0.1.0"></script>
+<script src="confirm.js?v=0.1.1"></script>
 ```
 
 ### Required elements

@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "npm-run-all clean build:js",
-    "build:js": "npx esbuild ./src/js/signup.js ./src/js/confirm.js --bundle --minify --outdir=dist",
+    "build:js": "npx esbuild ./src/js/signup.js ./src/js/confirm.js ./src/css/style.css --bundle --minify --outdir=dist",
     "clean": "rimraf ./dist",
     "dev": "npm-run-all clean --parallel dev:js",
-    "dev:js": "npx esbuild ./src/js/signup.js ./src/js/confirm.js --bundle --sourcemap --watch --outdir=dist"
+    "dev:js": "npx esbuild ./src/js/signup.js ./src/js/confirm.js ./src/css/style.css --bundle --sourcemap --watch --outdir=dist"
   },
   "author": "",
   "license": "ISC",
