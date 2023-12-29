@@ -1,5 +1,29 @@
-import { settings } from "./inc/settings";
+import { settings, inboxLinks } from "./inc/settings";
 import { postData } from "./inc/postData";
+
+function setInboxLink( inboxLinkPlaceholder, emailValue ) {
+	const emailParts  = emailValue.split('@');
+	const emailDomain = emailParts[1];
+
+	const emailProvider = inboxLinks.find( o => o.domains.includes( emailDomain ) );
+
+	const inboxLinkLabel = inboxLinkPlaceholder.innerHTML;
+	let inboxLink;
+
+	if ( emailProvider === undefined ) {
+		// Restore placeholder <span> element
+		inboxLink = document.createElement( "span" );
+	} else {
+		// Set a link to the corresponding inbox
+		inboxLink = document.createElement( "a" );
+		inboxLink.setAttribute( 'href', emailProvider.inboxUrl );
+		inboxLink.setAttribute( 'target', '_blank' );
+	}
+	inboxLink.setAttribute( 'class', 'inbox-link' );
+	inboxLink.innerHTML  = inboxLinkLabel;
+
+	inboxLinkPlaceholder.replaceWith( inboxLink );
+}
 
 function signUpEmail( form, eTarget ) {
 	// todo: disable button
@@ -17,12 +41,17 @@ function signUpEmail( form, eTarget ) {
 		return; // todo: error handling
 	}
 
-	const successMsg = document.querySelector( '#form-success' );
-	const errorMsg   = document.querySelector( '#form-error' );
+	const successMsg           = document.querySelector( '#form-success' );
+	const errorMsg             = document.querySelector( '#form-error' );
+	const inboxLinkPlaceholder = successMsg.querySelector( '.inbox-link' );
 
 	postData( postUrl, payload ).then( (data) => {
 		if ( data ) {
 			if ( successMsg ) {
+				if ( inboxLinkPlaceholder ) {
+					setInboxLink( inboxLinkPlaceholder, emailValue );
+				}
+
 				successMsg.classList.remove( settings.hiddenClass );
 				form.reset();
 				// todo: enable button
