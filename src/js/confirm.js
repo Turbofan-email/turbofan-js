@@ -6,7 +6,7 @@ if ( settings.confirmationPathname && window.location.pathname === settings.conf
 	const urlParams = new URLSearchParams(queryString);
 	const jwtParameter = urlParams.get( 'jwt' );
 
-	const errorMsg = document.querySelector( '#confirmation-error' );
+	const errorMsg = document.querySelector( settings.confirmErrorMsgSelector );
 
 	if ( jwtParameter && settings.apiHost ) {
 		const postUrl = `${settings.apiHost}/v1/form/confirm/${jwtParameter}`;

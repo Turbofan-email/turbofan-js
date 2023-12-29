@@ -41,9 +41,9 @@ function signUpEmail( form, eTarget ) {
 		return; // todo: error handling
 	}
 
-	const successMsg           = document.querySelector( '#form-success' );
-	const errorMsg             = document.querySelector( '#form-error' );
-	const inboxLinkPlaceholder = successMsg.querySelector( '.inbox-link' );
+	const successMsg           = document.querySelector( settings.formSuccessMsgSelector );
+	const errorMsg             = document.querySelector( settings.formErrorMsgSelector );
+	const inboxLinkPlaceholder = document.querySelector( settings.formInboxLinkSelector );
 
 	postData( postUrl, payload ).then( (data) => {
 		if ( data ) {
@@ -66,7 +66,7 @@ function signUpEmail( form, eTarget ) {
 	} );
 }
 
-const signUpForm = document.querySelector( '#signUpForm' );
+const signUpForm = document.querySelector( settings.formSelector );
 if ( signUpForm ) {
 	signUpForm.addEventListener( 'submit', e => {
 		e.preventDefault();

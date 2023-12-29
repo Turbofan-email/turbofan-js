@@ -1,6 +1,11 @@
 export const settings = {
 	apiHost: turbofanSettings.apiHost || 'https://api.turbofan.email',
 	confirmationPathname: turbofanSettings.confirmationPathname || '/signup-confirmed/',
+	formSelector: turbofanSettings.formSelector || '#turbofan-form',
+	formSuccessMsgSelector: turbofanSettings.formSuccessMsgSelector || '#turbofan-form .success-msg',
+	formErrorMsgSelector: turbofanSettings.formErrorMsgSelector || '#turbofan-form .error-msg',
+	formInboxLinkSelector: turbofanSettings.formInboxLinkSelector || '#turbofan-form .inbox-link',
+	confirmErrorMsgSelector: turbofanSettings.confirmErrorMsgSelector || '#turbofan-confirm .error-msg',
 	hiddenClass: turbofanSettings.hiddenClass || 'turbofan-hidden',
 	dryRun: turbofanSettings.dryRun || false,
 };
