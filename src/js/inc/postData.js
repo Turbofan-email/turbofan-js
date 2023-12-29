@@ -1,4 +1,10 @@
+import { settings } from "./settings";
+
 export async function postData( url = "", data = {} ) {
+	if ( settings.dryRun ) {
+		return { 'dummyData': true };
+	}
+
 	try {
 		const response = await fetch( url, {
 			method: "POST", // *GET, POST, PUT, DELETE, etc.
