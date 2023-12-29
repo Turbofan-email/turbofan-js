@@ -24,6 +24,8 @@ Or add the extended form to start with:
 
 	<button type="submit">Sign up</button>
 
+	<div class="spinner turbofan-hidden">Sending ...</div>
+
 	<p class="success-msg turbofan-hidden">Thank you, please <span class="inbox-link">check your inbox</span> to confirm your subscription!</p>
 	<p class="error-msg turbofan-hidden">Error, please try again later.</p>
 
@@ -32,6 +34,7 @@ Or add the extended form to start with:
 ```
 
 Here, the optional elements are used:
+- Loading spinner (default class: `spinner`)
 - Successful signup (default class: `success-msg`)
 - Error during signup (default class: `error-msg`)
 - Inbox link placeholder (default class: `inbox-link`)
@@ -61,6 +64,7 @@ const turbofanSettings = {
 	formSuccessMsgSelector: '#turbofan-form .success-msg',
 	formErrorMsgSelector: '#turbofan-form .error-msg',
 	formInboxLinkSelector: '#turbofan-form .inbox-link',
+	formSpinnerSelector: '#turbofan-form .spinner',
 	confirmErrorMsgSelector: '#turbofan-confirm .error-msg',
 	hiddenClass: 'turbofan-hidden',
 };

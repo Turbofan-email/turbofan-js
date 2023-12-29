@@ -41,27 +41,36 @@ function signUpEmail( form, eTarget ) {
 		return; // todo: error handling
 	}
 
-	const successMsg           = document.querySelector( settings.formSuccessMsgSelector );
-	const errorMsg             = document.querySelector( settings.formErrorMsgSelector );
-	const inboxLinkPlaceholder = document.querySelector( settings.formInboxLinkSelector );
+	const successMsgEl           = document.querySelector( settings.formSuccessMsgSelector );
+	const errorMsgEl             = document.querySelector( settings.formErrorMsgSelector );
+	const inboxLinkPlaceholderEl = document.querySelector( settings.formInboxLinkSelector );
+	const spinnerEl              = document.querySelector( settings.formSpinnerSelector );
+
+	if ( spinnerEl ) {
+		spinnerEl.classList.remove( settings.hiddenClass );
+	}
 
 	postData( postUrl, payload ).then( (data) => {
 		if ( data ) {
-			if ( successMsg ) {
-				if ( inboxLinkPlaceholder ) {
-					setInboxLink( inboxLinkPlaceholder, emailValue );
+			if ( successMsgEl ) {
+				if ( inboxLinkPlaceholderEl ) {
+					setInboxLink( inboxLinkPlaceholderEl, emailValue );
 				}
 
-				successMsg.classList.remove( settings.hiddenClass );
+				successMsgEl.classList.remove( settings.hiddenClass );
 				form.reset();
 				// todo: enable button
 			} else {
 				console.log( 'Signup successful!', data );
 			}
 		} else {
-			if ( errorMsg ) {
-				errorMsg.classList.remove( settings.hiddenClass );
+			if ( errorMsgEl ) {
+				errorMsgEl.classList.remove( settings.hiddenClass );
 			}
+		}
+
+		if ( spinnerEl ) {
+			spinnerEl.classList.add( settings.hiddenClass );
 		}
 	} );
 }

@@ -1,7 +1,10 @@
 import { settings } from "./settings";
 
+const delay = ms => new Promise( res => setTimeout( res, ms ) );
+
 export async function postData( url = "", data = {} ) {
 	if ( settings.dryRun ) {
+		await delay( 1000 );
 		return { 'dummyData': true };
 	}
 

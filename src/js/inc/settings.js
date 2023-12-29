@@ -5,6 +5,7 @@ export const settings = {
 	formSuccessMsgSelector: turbofanSettings.formSuccessMsgSelector || '#turbofan-form .success-msg',
 	formErrorMsgSelector: turbofanSettings.formErrorMsgSelector || '#turbofan-form .error-msg',
 	formInboxLinkSelector: turbofanSettings.formInboxLinkSelector || '#turbofan-form .inbox-link',
+	formSpinnerSelector: turbofanSettings.formSpinnerSelector || '#turbofan-form .spinner',
 	confirmErrorMsgSelector: turbofanSettings.confirmErrorMsgSelector || '#turbofan-confirm .error-msg',
 	hiddenClass: turbofanSettings.hiddenClass || 'turbofan-hidden',
 	dryRun: turbofanSettings.dryRun || false,
