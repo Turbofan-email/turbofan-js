@@ -1,5 +1,11 @@
 ## Usage
 
+### (optional) Use npm to install the package
+
+```
+npm i @turbofan/turbofan-js
+```
+
 ### Add the form to your HTML
 
 Default ID: `#turbofan-form`
@@ -24,7 +30,7 @@ Or add the extended form to start with:
 
 	<button type="submit">Sign up</button>
 
-	<div class="spinner turbofan-hidden">Sending ...</div>
+	<p class="spinner turbofan-hidden">Sending ...</p>
 
 	<p class="success-msg turbofan-hidden">Thank you, please <span class="inbox-link">check your inbox</span> to confirm your subscription!</p>
 	<p class="error-msg turbofan-hidden">Error, please try again later.</p>
@@ -41,7 +47,7 @@ Here, the optional elements are used:
 
 Note that if you don't have CSS helper classes for hidden elements or hidden for screen readers only, you can include the optional stylesheet before `</head>`:
 ```
-<link href="style.css?v=0.1.1" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@turbofan/turbofan-js@0.2.0/dist/css/style.css" rel="stylesheet">
 ```
 
 ### (optional) Add an error message to your confirmation page
@@ -79,21 +85,27 @@ hiddenClass | Name of CSS class | `turbofan-hidden` | No
 
 ### Option A: As a module (ESM)
 
+Import the module(s) in your script:
+```
+import '@turbofan/turbofan-js/signup.js';
+import '@turbofan/turbofan-js/confirm.js';
+```
+
 Include the script on the page with the sign up form, after the settings and before `</body>`:
 ```
-<script src="signup.js?v=0.1.1" type="module"></script>
+<script src="signup.js?v=0.2.0" type="module"></script>
 ```
 
 Include the script on the confirmation page, after the settings and before `</body>`:
 ```
-<script src="confirm.js?v=0.1.1" type="module"></script>
+<script src="confirm.js?v=0.2.0" type="module"></script>
 ```
 
 ### Option B: Use the bundle
 
 Include the script on both the page with the sign up form and the confirmation page, after the settings and before `</body>`:
 ```
-<script src="turbofan.bundle.js?v=0.1.1"></script>
+<script src="https://cdn.jsdelivr.net/npm/@turbofan/turbofan-js@0.2.0/dist/js/turbofan.bundle.js"></script>
 ```
 
 ## Development
