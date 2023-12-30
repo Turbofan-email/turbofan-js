@@ -1,18 +1,30 @@
 {
-  "name": "turbofan-js",
-  "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
+  "name": "@turbofan/turbofan-js",
+  "version": "0.2.0",
+  "description": "A helper script for sending form data to the Turbofan API",
+  "exports": {
+    ".": "./src/js/signup.js",
+    "./signup.js": "./src/js/signup.js",
+    "./confirm.js": "./src/js/confirm.js"
+  },
   "scripts": {
     "build": "npm-run-all clean build:js build:jsbundle",
-    "build:js": "npx esbuild ./src/js/signup.js ./src/js/confirm.js ./src/css/style.css --bundle --minify --splitting --outdir=dist --format=esm --target=es2017",
+    "build:js": "npx esbuild ./src/js/signup.js ./src/js/confirm.js ./src/css/style.css --bundle --minify --splitting --chunk-names=[ext]/[name]-[hash] --outdir=dist --format=esm --target=es2017",
     "build:jsbundle": "npx esbuild ./src/js/bundle.js --bundle --minify --outfile=dist/js/turbofan.bundle.js --format=esm --target=es2020",
     "clean": "rimraf ./dist",
     "dev": "npm-run-all clean --parallel dev:js",
-    "dev:js": "npx esbuild ./src/js/signup.js ./src/js/confirm.js ./src/css/style.css --bundle --sourcemap --watch --splitting --outdir=dist --format=esm --target=es2017"
+    "dev:js": "npx esbuild ./src/js/signup.js ./src/js/confirm.js ./src/css/style.css --bundle --sourcemap --watch --splitting --chunk-names=[ext]/[name]-[hash] --outdir=dist --format=esm --target=es2017"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Stefan Grassberger",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:Turbofan-email/turbofan-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Turbofan-email/turbofan-js/issues"
+  },
+  "homepage": "https://github.com/Turbofan-email/turbofan-js#readme",
   "devDependencies": {
     "esbuild": "^0.19.8",
     "npm-run-all": "^4.1.5",
