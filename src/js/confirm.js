@@ -2,8 +2,8 @@ import { settings } from "./inc/settings";
 import { postData } from "./inc/postData";
 
 if ( settings.confirmationPathname && window.location.pathname === settings.confirmationPathname ) {
-	const queryString = window.location.search;
-	const urlParams = new URLSearchParams(queryString);
+	const queryString  = window.location.search;
+	const urlParams    = new URLSearchParams(queryString);
 	const jwtParameter = urlParams.get( 'jwt' );
 
 	const errorMsg = document.querySelector( settings.confirmErrorMsgSelector );

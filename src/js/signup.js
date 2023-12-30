@@ -58,7 +58,7 @@ function signUpEmail( form, eTarget ) {
 	const formData = new FormData( eTarget );
 
 	let payload = {};
-	formData.forEach((value, key) => {
+	formData.forEach( (value, key) => {
 		payload[key] = value;
 	} );
 
